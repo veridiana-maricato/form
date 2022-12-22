@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/main.js" defer></script>
+    <title>Formulário</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulário de cadastro</h1>
+        <form class="forms" action="/" method="POST">
+            <div class="input-form">
+                <label for="name">Nome</label>
+                <input class="validate" type="text" name="name" id="name">           
+            </div>           
+            <div class="input-form">
+                <label for="last-name">Sobrenome</label>
+                <input class="validate" type="text" name="last-name" id="last-name">           
+            </div>           
+            <div class="input-form">
+                <label for="email">E-mail</label>
+                <input class="validate email" type="email" name="email" id="email">           
+            </div>           
+            <div class="input-form">
+                <label for="cpf">CPF</label>
+                <input class="validate cpf" type="text" name="cpf" id="cpf">           
+            </div>           
+            <div class="input-form">
+                <label for="password">Senha</label>
+                <input class="validate password" type="password" name="password" id="password">           
+            </div>           
+            <div class="input-form">
+                <label for="password">Confirmar senha</label>
+                <input class="validate password" type="password" name="password" id="password-repeat">
+            </div> 
+            <button type="submit" id="submit-btn" >Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>
