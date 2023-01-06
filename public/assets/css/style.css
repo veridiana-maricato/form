@@ -1,20 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 body{
-    background-color: #e9edc9;
+    background-color: hwb(67 79% 7%);
+    background-image: url('../img/paint-splash-1641998.jpg');
+    /* background-size: cover;
+    background-position: center; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 .container{
     width: 500px;
-    background-color: #6d6875;
+    /* background-color: rgba(40, 144, 156, 0.8); */
+    background-color: rgba(251, 255, 252, 0.21);
+    /* background-color: rgba(109, 104, 117, 0.7); */
     color: #fefae0;
     padding: 50px;
     font-family: 'PT Sans', sans-serif;
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 100px;
+    border-radius: 9px;
+}
+.container h1{
+    text-align: center;
 }
 
 .forms{
@@ -30,23 +39,27 @@ body{
 
 .forms input{
     padding: 5px;
-    
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.863);
 }
 .forms input:focus{
-    background-color: #faedcd
+    background-color: #fbfaf0;
+    border: none;
+    color: #470d0d;
 }
 
 .input-correct{
-    background-color: #e9edc9;
+    background-color: red;
 }
 
 #submit-btn{
-    background: #ccd5ae;
+    background: #eef3df;
     border: none;
     padding: 4px;
     width: 80px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px;
     color: #6d6875;
     font-weight: 700;
     border-radius: 3px;
@@ -69,6 +82,6 @@ body{
 }
 
 .error-text{
-    color:#fe5e5e;
+    color:#861e1e;
     font-size: 12px;
 }

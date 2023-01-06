@@ -8,17 +8,26 @@ class ValidateForm {
       this.handleSubmit(e);
     });
   }
-
   
   handleSubmit(e) {
     e.preventDefault();
     const validFields = this.isAValidField();
     const validPassword = this.isAValidPassword();
+    const filledFields = this.fieldIsFilled()
     
     if (validFields && validPassword) {
       alert("Formulário enviado!");
       this.form.submit();
     }
+  }
+
+  fieldIsFilled() {
+    const name = document.querySelector('#name')
+   
+      name.addEventListener('blur', () => {
+        classList.add('input-correct')
+      })
+    
   }
 
   isAValidField() {
@@ -38,11 +47,14 @@ class ValidateForm {
         if (!this.validateCPF(field)) valid = false;
       }
       if (field.classList.contains("email")) {
-        if (!this.validateEmail(field)) valid = false;
+        if (!this.validateEmail(field)) {
+          valid = false;
+        }
+        }
       }
+      return valid;
     }
-    return valid;
-  }
+  
 
   validateCPF(field) {
     const cpf = new ValidateCpf(field.value);
@@ -50,7 +62,6 @@ class ValidateForm {
       this.throwError(field, "CPF inválido");
       return false;
     }
-   
     return true;
   }
 
@@ -60,16 +71,12 @@ class ValidateForm {
     if (email && !email.includes("@", ".")) {
       this.throwError(field, "Insira um e-mail válido");
       validEmail = false;
-    }
-    
-      document.querySelector('.email').classList.add('input-correct')
-    
+    }        
     return validEmail;
   }
 
   isAValidPassword() {
     let validPassword = true;
-    const passwords = document.querySelectorAll(".password");
     const pass1 = document.querySelector("#password");
     const pass2 = document.querySelector("#password-repeat");
 
@@ -87,6 +94,7 @@ class ValidateForm {
   }
 
   throwError(field, message) {
+    const inputs = document.querySelectorAll('.validate')
     const div = document.createElement("div");
     div.innerHTML = message;
     div.classList.add("error-text");
@@ -144,3 +152,17 @@ class ValidateCpf {
     return this.newCpf === this.cleanCpf;
   }
 }
+
+
+// cpf mascara
+
+const cpfInput = document.querySelector('.cpf')
+
+cpfInput.addEventListener('keypress', () => {
+  let inputLength = cpfInput.value.length
+  if (inputLength === 3 || inputLength === 7){
+    cpfInput.value += `.`
+  }else if(inputLength === 11){
+    cpfInput.value += `-`
+  }
+})
